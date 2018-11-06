@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>SendIT | Home page</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
-    
+    <link rel="stylesheet" href="../static/main.css" media="screen"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
         <div class="content">
             <div id="left_side">
-                <img src="images/home.jpg"  />
+                <img src="../static/images/home.jpg"  />
             </div>
 
             <div class="right_side">
@@ -48,7 +48,12 @@
                 <div id="terms"><p><small>If you have an account <a href="index.html">Login</a>
             </div>
         </div>
-       
+        <footer id="main_footer">    
+			<div class="">
+				  <p class="copyright">Copyright &copy; 2018. <a href="index.html">SendIT Courier Service App </a></p>
+				  <p class="developer">Develop By Venviko</p>
+			</div>
+	  </footer>
     </div>
 </body>
 

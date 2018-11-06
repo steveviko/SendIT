@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>SendIT | Home page</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>SendIT | Home page</title>   
+    <link rel="stylesheet" href="../static/main.css" media="screen"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
     
 </head>
 
@@ -23,7 +24,7 @@
 
         <div class="content">
             <div id="left_side">
-                <img src="images/home.jpg"  />
+                <img src="../static/images/home.jpg"  />
             </div>
 
             <div class="right_side">
