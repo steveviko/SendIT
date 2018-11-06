@@ -17,12 +17,13 @@ body{
     padding:5px;
     font-family: 'Times New Roman', Times, serif;
     overflow:hidden;
-    text-align:center;
+    /* text-align:center; */
 }
 .topnav ul{
-    text-align: right;
+    /* text-align: right; */
     margin-right: 50px;
     margin-top: 5px;
+    float: right;
 }
 .topnav ul li {    
     height: 10px;
@@ -49,10 +50,21 @@ body{
     text-align: center;
     height: auto;
     width: 30%;
-    float: left;
+    float: right;
     
  }
- 
+ .right{
+    height:auto;
+    width:63%;
+    float:left;
+    margin:1% 1%;
+ }
+ .left{
+    text-align: left;
+    height: auto;
+    width: 30%;
+    float: left;
+ }
 form{
     display:block;    
     margin: auto;
@@ -107,3 +119,166 @@ input:focus {
     color: white;
     cursor: pointer;
 }
+#left-account {
+	width: 20%;
+	margin-top: 10px;
+	/* margin-left: 1%; */
+	margin-bottom:10px;
+	border-width: 1px;
+	float: left;	
+	padding: 5px 7px;
+	color: #FFFFFF;	
+	/* font-family: OpenSans-Regular; */
+	font-size: 11px;
+	background: #427cc4;
+	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+}
+#left-account .titles {
+	color: #FFFFFF;
+	padding-left: 10px;
+	margin-bottom: 3px;
+}
+h2.titles {
+	margin-top: 10px;
+}
+#left-account.user-thumbnail {
+	padding: 0 10px;
+}
+#left-account .user-thumbnail img {
+	max-width: 100%;
+}
+#left-account dl {
+	color: #ffffff;
+	margin: 18px 0 0;
+}
+#left-account dt {
+	padding: 2px 10px;
+	font-size:18px;
+	font-weight:bolder;
+	text-transform:uppercase;
+}
+#left-account dd {
+	position: relative;
+}
+
+#left-account  dd a.current {
+	background: rgba(255, 255, 255, 0.1);
+	margin-top:3px;	
+	font-size:14px;
+}
+#left-account  dd a {
+	display: block;
+	line-height: 18px;
+	padding: 2px 10px;
+	text-decoration: none !important;
+	color: #E6E6E6;
+}
+#left-account  dd a:hover{
+	color:orange;
+	text-decoration: underline;
+	font-weight:bolder;
+
+}
+#Account_right_side{
+	margin-top: 10px;
+	float: right;
+	width: 75%;
+	margin-bottom: 20px;
+}
+.box_container {
+	background:#ffeac3;
+	height:100%; 
+	padding:1px;
+	margin-bottom:20px; 
+	}
+.box_title{
+	background:#427cc4; 	
+	color:#fff; 
+	padding: 0 10px; 
+	line-height:32px; 
+	white-space:nowrap;
+	border-bottom:solid 1px #fff;
+}
+ .AlignLeft { 
+	color:#fff; 	  
+	 display:inline-block; 
+	 }
+.AlignLeftt{
+	color:#303030;
+	/* float:left;  */
+	 display:inline; 
+	 font-weight:bolder;
+		}
+ .AlignRight { 
+	 float:right; 
+	 display:inline; 
+	 }
+
+.table th{ 
+	background:#fffdfa  ;
+	color:#404040; 
+	font-weight:bolder;
+	text-align: left; 
+	padding:7px 10px; 
+	border-bottom:solid 1px #d2d1cb;
+	}
+.table td{ 
+	background:#fbfcfc;
+	border-bottom:solid 1px #e0e0e0;
+	padding:8px 10px; 
+	}
+.table tr.odd td{
+ background:#f8f8f8;
+ }
+.table tr:hover td{ 
+	background:#fff9e1;
+	}
+.pagging { 
+	height:20px; 
+	padding:8px 10px;
+	line-height:19px;
+	color:#949494; 
+	}
+.pagging a{ 
+	background:url(images/pagging.gif) repeat-x 0 0;
+	 height:20px; 
+	 float:left; 
+	 padding:0 8px; 
+	 border:solid 1px #d5d5d5; 
+	 text-decoration: none; 
+	 color:#949494;
+	 margin-left:5px; 
+	 }
+.pagging a:hover {
+	border-color:#8c3521;
+	background:orange;
+	color:#fff; 
+	}
+.pagging span{
+	float:left;
+	margin-left:5px; 
+	padding-top:2px; 
+    }
+    
+    #main_footer{	
+        margin-top: 10px;
+        clear: both;
+        color:white;	
+        height:78px;
+        font-size: 18px;
+        background: #427cc4;
+    }
+    .copyright {
+        float: left;
+        width: 50%;
+        padding: 10px;	
+        text-align: left;
+    }
+    .copyright a{
+    color:white;
+    }
+    .developer {
+        float: right;        
+        padding: 10px;
+        color: #222;
+    }
