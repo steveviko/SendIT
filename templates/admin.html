@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>SendIT | My Account page</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
-    
+    <link rel="stylesheet" href="../static/main.css" media="screen"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
 </head>
 
 <body>
@@ -26,15 +26,15 @@
             <aside id="left-account">
                 <h2 class="titles">NAME:Steve</h2>
             <div class="user-thumbnail">
-                <a href="#"><img src="images/defaultProfileImage.png"></a>
+                <a href="#"><img src="../static/images/defaultProfileImage.png"></a>
             </div>
             
         
         <dl style="margin-top:10px;">
-            <dt>My Account</dt>
+            <dt>Admin</dt>
     
                         <dd>
-                    <a href="#" class="current">My Orders</a>
+                    <a href="#" class="current">All Orders</a>
     
                     <div class="menu-item-divider"></div>
                 </dd>
@@ -44,12 +44,12 @@
                     <div class="menu-item-divider"></div>
                 </dd>
                 <dd>
-                    <a href="#" class="current">Make Order</a>
+                    <a href="#" class="current">Approved</a>
     
                     <div class="menu-item-divider"></div>
                 </dd>
                  <dd>
-                    <a href="#" class="current">Cancel</a>
+                    <a href="#" class="current">Cancelled</a>
     
                     <div class="menu-item-divider"></div>
                 </dd>
@@ -110,7 +110,8 @@
                             <th>Order No.</th>
                             <th>Total</th>
                             <th>Status</th>
-                            <th width="150" class="ac">Edit Oreders</th>
+                            <th>Destination</th>
+                            <th width="130" class="ac">Edit Oreders</th>
                         </tr>
                         
                         <tr class="request_lis">
@@ -119,7 +120,8 @@
                             <td><a href="#"></a></td>
                             <td><a href="#"></a></td>
                             <td><a href="#"></a></td>
-                            <td><a href="#"></a></td>
+                            <td><a href="#">Approve </a>|<a href="#">Cancel </a></td>
+                            <td><a href="#">Edit</a></td>
                             <td class="icon_del"><a href="" >View Details</a></td>
                         </tr>
                         

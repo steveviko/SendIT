@@ -3,12 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">      
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>SendIT | Home page</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
-    
+    <link rel="stylesheet" href="../static/main.css" media="screen"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
 </head>
 
 <body>
@@ -19,17 +17,13 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html">Contact</a></li>
                     <li><a href="index.html">Login</a></li>
-
-
                 </ul>
             </div>
         </div>
 
         <div class="content">
             <div id="left_side">
-
-                <img src="images/home.jpg"  />
-
+                <img src="../static/images/home.jpg"  />
             </div>
 
             <div class="right_side">
@@ -37,29 +31,33 @@
                     <h3>SendIT Courier Service</h3>
                 </div>
                 <form action="#">
-
                     <p>
-                    <label>&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;</label>
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;</label>
                     <input type="email" placeholder="name@domain.com" required />
+                    </p>
+                    <p>         
+                    <label>Username:</label>
+                    <input type="text" placeholder="Enter Username Name" required />
                     </p>
                     <p>
                     <label>Password:</label>
                     <input type="password" placeholder="Password" required />
-                    </p>
-                    <input type="submit" class="accept" value="Login"  />
+                    </p>                           
+                    <input type="submit" class="accept" value="Register" />
                 </form>
-                <div class="terms"><p><small>If you do not have an account <a href="register.html">Register</a>
-                <div class="terms"><p><small>By submiting, you agree to the <a href="#">Terms and Conditions</a> here.</small></p></div>
-                <div class="terms"><p><small>Admin login<a href="index.html"> Login</a> here.</small></p></div>
+                <div id="terms"><p><small>If you have an account <a href="index.html">Login</a>
             </div>
         </div>
+<<<<<<< HEAD:templates/register.html
         <footer id="main_footer">    
 			<div class="">
 				  <p class="copyright">Copyright &copy; 2018. <a href="index.html">SendIT Courier Service App </a></p>
 				  <p class="developer">Develop By Venviko</p>
 			</div>
 	  </footer>
+=======
 
+>>>>>>> 5f8628eed0baabcadaf0334cefbaf4b0602de5d4:register.html
     </div>
 </body>
 
