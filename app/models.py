@@ -47,8 +47,8 @@ class Order:
         #method to Cancel specific order using the id. 
         Parcel_data = [order for order in self.delivery_orders if order['order_id'] == parcelId]
         if not Parcel_data:
-            return "does not exist"                  
-             
+            return "does not exist"                
+  
             
         else:
             data=request.data
@@ -57,5 +57,11 @@ class Order:
             return Parcel_data[0]
             
             
+    def get_user_orders(self, userId):
+        for order in self.delivery_orders:
+            if order['user_id'] == userId:
+                return order
+        
+        
         
         
