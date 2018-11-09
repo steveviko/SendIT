@@ -34,3 +34,11 @@ def get_an_order(parcelId):
         return jsonify({"order": single_order}),200
     else:
         return jsonify({"Error": "Sorry you have entered incorrect  id"}), 400
+
+
+@app.route("/api/v1/parcels", methods = ["GET"])
+def Fetch_all_orders():
+    orders = order_obj.get_all_orders()
+    if len(orders) ==[]:
+        return jsonify({"order": "No orders available for delivery"}), 204   
+    return jsonify({'orders': orders}), 200
