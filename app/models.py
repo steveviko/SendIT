@@ -14,10 +14,12 @@ class Order:
         for i in range(len(self.delivery_orders)):
             orders_numbers += 1
         result['order_id'] = orders_numbers
+        result['user_id'] = orders_numbers
         orders= [order for order in self.delivery_orders if order['item'] == item]
         if not orders:
             new_order = {
-                "order_id": int(orders_numbers),                
+                "order_id": int(orders_numbers), 
+                "user_id": int(orders_numbers),               
                 "item": item,
                 "description": description,
                 "destination":destination,
