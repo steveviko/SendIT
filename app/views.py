@@ -45,3 +45,16 @@ def Fetch_all_orders():
 
 
 
+@app.route('/api/v1/parcels/<parcelId>/cancel', methods=['PUT'])
+def put_order(parcelId):    
+    #cancel order on pending lists.
+   
+    data=request.data
+    result  =json.loads(data) 
+    order_status = result['status']
+    
+    if order_status not in ['Pending','cancel']:
+        return jsonify({"message":"Error. Invalid  status"}), 400
+    else:
+        cancelled_order= order_obj.Cancel_order(int(parcelId),order_status)        
+        return jsonify({"Cancelled order": cancelled_order}), 200
