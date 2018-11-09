@@ -26,3 +26,11 @@ def post_order():
     else:
         return jsonify({"Order": verify_order}), 201
 
+
+@app.route("/api/v1/parcels/<int:parcelId>", methods = ["GET"])
+def get_an_order(parcelId):
+    single_order = order_obj.Fetch_an_order(parcelId)
+    if single_order:        
+        return jsonify({"order": single_order}),200
+    else:
+        return jsonify({"Error": " incorrect  id"}), 400
