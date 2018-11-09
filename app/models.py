@@ -40,3 +40,20 @@ class Order:
     def get_all_orders(self):
         #Return list of all orders      
         return self.delivery_orders
+
+    def Cancel_order(self, parcelId,order_status):        
+        #method to Cancel specific order using the id. 
+        Parcel_data = [order for order in self.delivery_orders if order['order_id'] == parcelId]
+        if not Parcel_data:
+            return "does not exist"                  
+             
+            
+        else:
+            data=request.data
+            result  =json.loads(data) 
+            Parcel_data[0]['status'] =result['status']
+            return Parcel_data[0]
+            
+            
+        
+        

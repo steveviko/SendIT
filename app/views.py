@@ -42,3 +42,6 @@ def Fetch_all_orders():
     if len(orders) ==[]:
         return jsonify({"order": "No orders available for delivery"}), 204   
     return jsonify({'orders': orders}), 200
+
+
+
