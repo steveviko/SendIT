@@ -32,4 +32,7 @@ class Order:
             return orders
     
    
-            
+    def Fetch_an_order(self, parcelId):
+        for order in self.delivery_orders:
+            if order["order_id"] == parcelId: 
+                return order
