@@ -58,3 +58,11 @@ def put_order(parcelId):
     else:
         cancelled_order= order_obj.Cancel_order(int(parcelId),order_status)        
         return jsonify({"Cancelled order": cancelled_order}), 200
+
+@app.route("/api/v1/users/<int:userId>/parcels", methods = ["GET"])
+def Fetch_user_orders(userId):
+    user_orders = order_obj.get_user_orders(userId)
+    if user_orders:        
+        return jsonify({"orders": user_orders}),200
+    else:
+        return jsonify({"Error": "Sorry you have  incorrect user id"}), 400

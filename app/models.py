@@ -58,10 +58,19 @@ class Order:
             
             
     def get_user_orders(self, userId):
-        for order in self.delivery_orders:
-            if order['user_id'] == userId:
-                return order
-        
+
+        user_order =[order for order in self.delivery_orders if order['user_id'] == userId]
+        if user_order: 
+
+            return user_order
+           
+
+        else:   
+            return "No orders for this user"          
+            
+
+               
+         
         
         
         
