@@ -36,3 +36,7 @@ class Order:
         for order in self.delivery_orders:
             if order["order_id"] == parcelId: 
                 return order
+
+    def get_all_orders(self):
+        #Return list of all orders      
+        return self.delivery_orders
