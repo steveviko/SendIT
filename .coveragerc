@@ -7,6 +7,6 @@ omit =
     
    # omit anything in a .virtualenv directory anywhere
     */virtualenv/*
-    */home/*
+    
     
     
