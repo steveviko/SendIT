@@ -33,6 +33,16 @@ class TestsOrder(unittest.TestCase):
     def test_fetch_an_order(self):
         response = self.app.get("/api/v1/parcels/1")
         self.assertEqual(response.status_code, 200)
+
+    def test_cancel_order(self):       
+        response = self.app.put("/api/v1/parcels/1/cancel", data = json.dumps(dict(item="watch",
+                                                            description="rolex",
+                                                            destination="kigali",
+                                                            quantity=2, 
+                                                            status="cancel")), content_type = 'application/json')
+        self.assertEqual(response.status_code, 200)
+
+        
     
        
   
