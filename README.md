@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/steveviko/SendIT.svg?branch=develop)](https://travis-ci.org/steveviko/SendIT)
+[![Coverage Status](https://coveralls.io/repos/github/steveviko/SendIT/badge.svg?branch=develop)](https://coveralls.io/github/steveviko/SendIT?branch=develop)
 # SendIT
 
 - SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes    based on weight categories.
