@@ -1,6 +1,6 @@
 from flask import jsonify, request,json
 class Order:   
-    delivery_orders = []
+    
 
     def __init__(self):
         self.delivery_orders = []
@@ -58,6 +58,12 @@ class Order:
             
             
     def get_user_orders(self, userId):
+        number_types = (int, float, complex)
+ 
+        if isinstance(userId, number_types):
+            return userId 
+        else:
+            raise ValueError
 
         user_order =[order for order in self.delivery_orders if order['user_id'] == userId]
         if user_order: 

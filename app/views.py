@@ -1,8 +1,11 @@
 from flask import request, jsonify, make_response,json
-from app import app
+from app import create_app
+
 from app.models import Order
 
 order_obj = Order()
+
+app = create_app()
 
 @app.route("/api/v1/parcels", methods=["POST"])
 def post_order():
