@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/steveviko/SendIT.svg?branch=develop)](https://travis-ci.org/steveviko/SendIT)
 [![Coverage Status](https://coveralls.io/repos/github/steveviko/SendIT/badge.svg?branch=challenge2)](https://coveralls.io/github/steveviko/SendIT?branch=challenge2)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/2b9eb6fa3784abf79d79/test_coverage)](https://codeclimate.com/github/steveviko/SendIT/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2b9eb6fa3784abf79d79/maintainability)](https://codeclimate.com/github/steveviko/SendIT/maintainability)
 # SendIT
 
 - SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes    based on weight categories.
