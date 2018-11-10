@@ -1,5 +1,7 @@
 from flask import Flask
 
-app = Flask(__name__)
-
-from app import views
+def create_app():
+    app = Flask(__name__, instance_relative_config=True)
+    app.config['TESTING'] = True
+    app.config['DEBUG'] = True
+    return app
