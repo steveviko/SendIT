@@ -30,5 +30,9 @@ class TestsOrder(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     
+    def test_fetch_an_order(self):
+        response = self.app.get("/api/v1/parcels/1")
+        self.assertEqual(response.status_code, 200)
+    
        
   
