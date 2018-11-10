@@ -25,6 +25,10 @@ class TestsOrder(unittest.TestCase):
         self.assertEqual(response.status_code, 201)
         self.assertIn(b"Order", response.data)
         
+    def test_get_all_orders(self):
+        response = self.app.get("/api/v1/parcels")
+        self.assertEqual(response.status_code, 200)
+
     
        
   
