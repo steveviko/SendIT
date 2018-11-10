@@ -42,7 +42,13 @@ class TestsOrder(unittest.TestCase):
                                                             status="cancel")), content_type = 'application/json')
         self.assertEqual(response.status_code, 200)
 
-        
+    #check whether order status is cancel
+    def test_status_is_cancel(self):
+        response = self.app.put('/api/v1/parcels/1/cancel',
+                          content_type='application/json', 
+                                data=json.dumps({"status": "cancel"})
+                                )
+        self.assertEqual(response.status_code, 200)  
     
        
   
