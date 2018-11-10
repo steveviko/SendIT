@@ -1,0 +1,12 @@
+[report]
+
+[run]
+omit =
+
+   
+    
+   # omit anything in a .virtualenv directory anywhere
+    */virtualenv/*
+    
+    
+    
