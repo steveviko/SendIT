@@ -49,6 +49,10 @@ class TestsOrder(unittest.TestCase):
                                 data=json.dumps({"status": "cancel"})
                                 )
         self.assertEqual(response.status_code, 200)  
-    
+        
+    def test_user_id_type_input_returns_interger(self):        
+        self.num =self.order.get_user_orders(2)
+        self.assertIsInstance(self.num, int)
+
        
   
