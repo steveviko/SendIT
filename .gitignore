@@ -1,7 +1,0 @@
-__pycache__
-.vscode/
-.venv
-.idea
-venv
-app/__pycache__
-tests/__pycache__
