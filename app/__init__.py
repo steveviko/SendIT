@@ -5,3 +5,6 @@ def create_app():
     app.config['TESTING'] = True
     app.config['DEBUG'] = True
     return app
+
+
+from app.views import app
