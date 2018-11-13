@@ -5,23 +5,64 @@
 
 - SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes    based on weight categories.
 
-# Features 
+## Getting Started
+- These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
--   1. Users can create an account and log in. 
-    2. Users can create a parcel delivery order. 
-    3. Users can change the destination of a parcel delivery order. 
-    4. Users can cancel a parcel delivery order. 
-    5. Users can see the details of a delivery order. 
-    6. Admin can change the ​ status​ ​  and ​present​ ​  ​ location​ ​  of a parcel delivery order. 
+## Installation
+**Clone this _Repository_**
+
+ - [clone](https://github.com/steveviko/SendIT/tree/develop) to your computer
 
 
-# Contributors
+ ## Tools
+ ``` 
+●	Server-Side Framework: <Flask Python Framework>
+●	Linting Library: <Pylint, a Python Linting Library>
+●	Style Guide: <PEP8 Style Guide>
+●	Testing Framework: <unittest, test runner package>
+ ```
+### Running the tests
+To run tests run this command below in your terminal
+
+```
+$ nosetests example_unit_test.py
+```
+**Create virtual environment and install it**
+```
+$ virtualenv - -python = python3 venv
+$ source / venv/bin/activate
+```
+**Install all the necessary _dependencies_ by**
+```
+$ pip install - r requirements.txt
+```
+**Run _app_ by**
+```
+$ Python run.py
+$ Run the server At the terminal or console type
+```
+## Project APIs
+|           End Point | Functionality |
+| -------------------------------------- | ----------------------------------------- |
+|     POST   api/v1/parcels      | Create a parcel delivery order |
+|PUT/parcels/<parcelId>/cancel|Cancel the specific parcel delivery order |
+| GET /parcels/<parcelId> | Fetch a specific parcel delivery order|
+| GET /users/<userId>/parcels | Fetch all parcel delivery orders by a specific user |
+|     GET  api/v1/parcels  | Fetch all parcel delivery orders |
+
+Open the browser to view the endpoints with their specifications
+* localhost:5000 
+
+
+## Contributors
 - [Steven Opio](https://github.com/steveviko)
 
-# This Platform is served by  
+## This Platform is served by  
 - Git-pages [GitHub Pages](https://steveviko.github.io/SendIT/). 
 
+## Demo
+- The API is hosted [Here](https://venvikosendit.herokuapp.com/api/v1/parcels)
 
+## MIT License
 
-## License
-- MIT License
+Copyright (c) 2018 **VenViko**
