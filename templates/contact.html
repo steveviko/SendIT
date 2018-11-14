@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>	HOME | SendIT App</title>
+        <link rel="stylesheet" href="../static/main.css" media="screen"/>
+        <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
+    </head>
+    <body>
+        <div id="main_container">
+            <header class="main_header">
+                    <div class="right_header">
+                   <img src="../static/images/ban.jpg" />
+                    </div>
+                    <a href="index.html"><h2 >SendIT App</h2></a>
+                    
+            </header>
+            <div id="topnav">
+                    <ul class="menu">
+                        <li><a href="index.html" >Home</a></li>	
+                        <li><a href="about.html" >About</a></li>
+                        <li><a href="contact.html" >Contact </a></li>
+                        <li><a href="register.html" >SignUp</a></li>
+                    </ul>
+                   
+            </div>
+            <aside id="left_content">
+                    <img src="../static/images/home.jpg" />
+            </aside>
+            <section id="right_content">
+                <form  id="Registerform" action="">
+                    <h3>Write a Message</h3>
+                    <div class="field">
+                        <label for="FirstName">Name</label>
+                        <input type="text" class="input" id="FirstName" name="FirstName" placeholder="Fill in Your name..">
+                    </div>
+                    <div class="field">
+                        <label for="LastName">Email</label>
+                        <input type="email" class="input" id="email"  placeholder="Fill in Your emaill..">                               
+                    </div>
+                
+                    <label for="message">Message</label>
+                    <textarea id="message" class="text_m" name="message" placeholder="Write Your message.." ></textarea>
+                
+                    <input type="submit" class="submit_m" value="Send">
+                
+                  </form>
+                 
+            </section>
+            <footer class="footer">    
+                    <div class="">
+                          <p class="copyright">Copyright &copy; 2018 <a href="#">SendIT Courier App </a></p>
+                          <p class="developer"><a href="#">Developed By venviko</a></p>
+                    </div>
+            </footer>
+            
+        </div>
+    </body>
+
+</html>
