@@ -20,7 +20,9 @@ class TestsOrder(unittest.TestCase):
         self.assertIsInstance(self.order, Order)
 
     def test_add_order_method(self):
-        self.assertEqual(len(self.order.delivery_orders),0)               
+        self.assertEqual(len(self.order.delivery_orders),0) 
+        self.order.add_order(self.sample_order)
+        self.assertEqual(len(self.order.delivery_orders),1)               
         response = self.app.post("/api/v1/parcels", data = json.dumps(self.sample_order), content_type = 'application/json')
         self.assertEqual(response.status_code, 201)
         self.assertIn(b"Order", response.data)

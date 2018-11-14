@@ -10,25 +10,23 @@ app = create_app()
 @app.route("/api/v1/parcels", methods=["POST"])
 def post_order():
     #Add new order
-    try:
+    # try:
         request_data=request.data
         result  =json.loads(request_data)
         # result = request.get_json() 
+        new_order = {                             
+                "item": result["item"],
+                "description": result["description"],
+                "destination":result["destination"],                
+                "quantity":result["quantity"]
+            }
+    
+        if  new_order:
+            order_obj.add_order(new_order)
+            return jsonify({"Parcels": new_order}), 201
         
-        verify_order = order_obj.add_order(result['item'], 
-                                            result['description'],
-                                            result['destination'],
-                                            result['quantity'])
         
-    except Exception as err:
-        return jsonify({"Message": "Please add the {}  field".format(str(err))}), 400
-
-    if result['description'] is None or type(result['description']) != str or result['description'] is "" :
-        return jsonify({"Message":"Description should be text"}), 400
-
-    else:
-        return jsonify({"Order": verify_order}), 201
-
+  
 
 @app.route("/api/v1/parcels/<int:parcelId>", methods = ["GET"])
 def get_an_order(parcelId):
