@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>	HOME | SendIT App</title>
+        <link rel="stylesheet" href="../static/main.css" media="screen"/>
+        <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
+    </head>
+    <body>
+        <div id="main_container">
+            <header class="main_header">
+                    <div class="right_header">
+                   <img src="../static/images/ban.jpg" />
+                    </div>
+                    <a href="index.html"><h2 >SendIT App</h2></a>
+                    
+            </header>
+            <div id="topnav">
+                    <ul class="menu">
+                        <li><a href="index.html" >Home</a></li>	
+                        <li><a href="about.html" >About</a></li>
+                        <li><a href="contact.html" >Contact </a></li>
+                        <li><a href="userAccount.html" >My Orders(3)</a></li>
+                        <li><a href="index.html" >Logout</a></li>
+                    </ul>
+                   
+            </div>
+            <aside class="left_content">
+                    <h2 class="titles">NAME:Steve</h2>
+                    <div class="user-thumbnail">
+                        <a href="#"><img src="../static/images/defaultProfileImage.png"></a>
+                    </div>
+                    
+                
+                <dl style="margin-top:10px;">
+                    <dt>My Account</dt>
+            
+                                <dd>
+                            <a href="userAccount.html" class="current">My Order(3)</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                         <dd>
+                            <a href="pending.html" class="current">Pending(2)</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                        <dd>
+                            <a href="#" class="current">Make Order</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                         <dd>
+                            <a href="cancel.html" class="current">Cancelled(1)</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                           
+                </dl>
+            
+                       
+                        <dt>Setting</dt>
+                        <dd>
+                            <a href="#" class="current">Change Password</a>
+                                                
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                        <dd>
+                            <a href="#" class="current">Edit Profile</a>
+                                                
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                        
+                    </dl>
+            </aside>
+            <section class="right_content_detial">
+                
+                    <div class="detial">
+                        <form id="RegisterForm">
+                            <div class="bill">
+                            <h3>Billing Address</h3>
+                            <div class="feild">
+                            <label > Full Name</label>
+                            <input type="text" class="input_detail" name="firstname" placeholder="steven">
+                            </div>
+                            <div class="feild">
+                            <label for="email"> Email</label>
+                            <input type="text" class="input_detail" id="email" name="email" placeholder="john@example.com">
+                            </div>
+                            <div class="feild">
+                            <label for="address"> Destination</label>
+                            <input type="text" class="input_detail" id="address" name="address" placeholder="542 W. williams Street">
+                            </div>
+                            <div class="feild">
+                            <label for="city"> City</label>
+                            <input type="text" class="input_detail" id="city" name="city" placeholder="Kampala">
+                            </div>
+                            <div class="feild">
+                                    <label for="name">Date</label>
+                                    <input type="date" class="input_detail" id="date" name="date" placeholder="MM/DD/Y">
+                             </div>
+                            <div class="feild">
+                                <label for="name">Item Name</label>
+                                <input type="text" class="input_detail" id="item" name="item" placeholder="Item name">
+                            </div>
+                            <label for="message">Description</label>
+                            <textarea id="message" class="text_m" name="message" placeholder="Write Your Description.." ></textarea>
+                            <div class="feild">
+                            <button class="button"><a href="">Add to Order</a></button>
+                            <button class="button"><a href="">Back</a></button>
+                            </div>
+                            <p>
+                                    <input type="checkbox" class="low" checked="checked" name="sameadr"> Shipping address same as billing
+                            </p>
+                           
+                            </div>
+                
+                          <!-- <div class="image_detail">
+                            <div class="feild">
+                            <label for="name">Item Name</label>
+                            <input type="text" class="input_detail" id="item" name="item" placeholder="Item name">
+                            </div> -->
+                            <!-- <div class="icon-container">
+                              <img src="../static/images/tv.jpg">
+                            </div> -->
+                            
+                          <!-- </div> -->
+                        </form>
+                        </div>
+                        
+                        
+                      
+                    
+                  
+                
+                     
+            </section>
+            <footer class="footer">    
+                    <div class="">
+                          <p class="copyright">Copyright &copy; 2018 <a href="#">SendIT Courier App </a></p>
+                          <p class="developer"><a href="#">Developed By venviko</a></p>
+                    </div>
+            </footer>
+            
+        </div>
+    </body>
+
+</html>
