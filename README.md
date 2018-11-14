@@ -58,7 +58,7 @@ Open the browser to view the endpoints with their specifications
 - [Steven Opio](https://github.com/steveviko)
 
 ## This Platform is served by  
-- Git-pages [GitHub Pages](https://steveviko.github.io/SendIT/). 
+- Git-pages [GitHub Pages](https://steveviko.github.io/SendIT/UI/index.html). 
 
 ## Demo
 - The API is hosted [Here](https://venvikosendit.herokuapp.com/api/v1/parcels)
