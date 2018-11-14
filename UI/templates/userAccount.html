@@ -1,164 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>SendIT | My Account page</title>
-    <link rel="stylesheet" href="../static/main.css" media="screen"/>
-    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
-</head>
-
-<body>
-    <div class="container">
-        <div class="topmenu">
-            <div class="topnav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">Contact</a></li>
-                    <li><a href="index.html">Orders</a></li>
-                    <li><a href="index.html">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="content">
-            <aside id="left-account">
-                <h2 class="titles">NAME:Steve</h2>
-            <div class="user-thumbnail">
-                <a href="#"><img src="../static/images/defaultProfileImage.png"></a>
-            </div>
-            
-        
-        <dl style="margin-top:10px;">
-            <dt>My Account</dt>
-    
-                        <dd>
-                    <a href="#" class="current">My Orders</a>
-    
-                    <div class="menu-item-divider"></div>
-                </dd>
-                 <dd>
-                    <a href="#" class="current">Pending(0)</a>
-    
-                    <div class="menu-item-divider"></div>
-                </dd>
-                <dd>
-                    <a href="#" class="current">Make Order</a>
-    
-                    <div class="menu-item-divider"></div>
-                </dd>
-                 <dd>
-                    <a href="#" class="current">Cancel</a>
-    
-                    <div class="menu-item-divider"></div>
-                </dd>
-                   
-        </dl>
-    
-                <dl>
-                <dt>Messages</dt>
-                <dd>
-                    <a href="#" class="current">Inbox(0)</a>
-                                        
-                    <div class="menu-item-divider"></div>
-                </dd>
-                <dd>
-                    <a href="#" class="current">Sent</a>
-                                        
-                    <div class="menu-item-divider"></div>
-                </dd>
-                <dd>
-                    <a href="#" class="current">Compose</a>
-                                        
-                    <div class="menu-item-divider"></div>
-                </dd>
-            </dl>
-            <dl>
-                <dt>Setting</dt>
-                <dd>
-                    <a href="#" class="current">Change Password</a>
-                                        
-                    <div class="menu-item-divider"></div>
-                </dd>
-                <dd>
-                    <a href="#" class="current">Edit Profile</a>
-                                        
-                    <div class="menu-item-divider"></div>
-                </dd>
-                
-            </dl>
-    
-    
-    </aside>
-
-    <section id="Account_right_side">
-
-        <div class="box_container">
-                <!-- Box Head -->
-                <div class="box_title">
-                    <h2 class="AlignLeft ">Order Information</h2>
-                    
-                </div>
-                
-                <div class="table">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr >
-                            <th width="20"><input type="checkbox" class="checkbox" /></th>								
-                            <th>Items</th>
-                            <th>Order Date</th>
-                            <th>Order No.</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th width="150" class="ac">Edit Oreders</th>
-                        </tr>
-                        
-                        <tr class="request_lis">
-                            <td><input type="checkbox" class="checkbox" /></td>
-                            <td><a href="#"></a></td>
-                            <td><a href="#"></a></td>
-                            <td><a href="#"></a></td>
-                            <td><a href="#"></a></td>
-                            <td><a href="#"></a></td>
-                            <td class="icon_del"><a href="" >View Details</a></td>
-                        </tr>
-                        
-                    </table>
-                    
-                    
-                    <!-- Pagging -->
-                    <div class="pagging">
-                        <div class="AlignLeftt">Showing 1-12 of 44</div>
-                        <div class="AlignRight">
-                            <a href="#">Previous</a>
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">245</a>
-                            <span>...</span>
-                            <a href="#">Next</a>
-                            <a href="#">View all</a>
-                        </div>
+<html >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>	HOME | SendIT App</title>
+        <link rel="stylesheet" href="../static/main.css" media="screen"/>
+        <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" media="screen">
+    </head>
+    <body>
+        <div id="main_container">
+            <header class="main_header">
+                    <div class="right_header">
+                   <img src="../static/images/ban.jpg" />
                     </div>
-                    <!-- End Pagging -->
+                    <a href="index.html"><h2 >SendIT App</h2></a>
                     
-                </div>
-                
-                
+            </header>
+            <div id="topnav">
+                    <ul class="menu">
+                        <li><a href="index.html" >Home</a></li>	
+                        <li><a href="about.html" >About</a></li>
+                        <li><a href="contact.html" >Contact </a></li>
+                        <li><a href="userAccount.html" >My Orders(3)</a></li>
+                        <li><a href="index.html" >Logout</a></li>
+                    </ul>
+                   
             </div>
-            <!-- End Box -->
-    </section>
+            <aside class="left_content">
+                    <h2 class="titles">NAME:Steve</h2>
+                    <div class="user-thumbnail">
+                        <a href="#"><img src="../static/images/defaultProfileImage.png"></a>
+                    </div>
+                    
+                
+                <dl style="margin-top:10px;">
+                    <dt>My Account</dt>
+            
+                                <dd>
+                            <a href="userAccount.html" class="current">My Order(3)</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                         <dd>
+                            <a href="pending.html" class="current">Pending(2)</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                        <dd>
+                            <a href="#" class="current">Make Order</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                         <dd>
+                            <a href="cancel.html" class="current">Cancelled(1)</a>
+            
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                           
+                </dl>
+            
+                       
+                        <dt>Setting</dt>
+                        <dd>
+                            <a href="#" class="current">Change Password</a>
+                                                
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                        <dd>
+                            <a href="#" class="current">Edit Profile</a>
+                                                
+                            <div class="menu-item-divider"></div>
+                        </dd>
+                        
+                    </dl>
+            </aside>
+            <section class="right_content">
+                
+                    <div class="box_container">
+                            <!-- Box Head -->
+                            <div class="box_title">
+                                <h2 class="AlignLeft ">Order Information</h2>
+                                
+                            </div>
+                            
+                            <div class="table">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr >
+                                        <th width="20"><input type="checkbox" class="checkbox" /></th>								
+                                        <th>Items</th>
+                                        <th>Image</th>
+                                        <th>Order Date</th>
+                                        <th>Order No.</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th width="150" class="ac">Edit Order</th>
+                                    </tr>
+                                    
+                                    <tr class="request_lis">
+                                        <td><input type="checkbox" class="checkbox" /></td>
+                                        <td class="icon_del"><a href="#">Phone</a></td>
+                                        <td class="icon_del"><a href="#"><img src="../static/images/phone.jpg"/></a></td>
+                                        <td class="icon_del"><a href="#">13/11/2018</a></td>
+                                        <td class="icon_del"><a href="#">1</a></td>
+                                        <td class="icon_del"><a href="#">2</a></td>
+                                        <td class="icon_del"><a href="#">Pending</a></td>
+                                        <td class="icon_del"><a href="" >View Details</a></td>
+                                    </tr>
+                                    <tr class="request_lis">
+                                            <td><input type="checkbox" class="checkbox" /></td>
+                                            <td class="icon_del"><a href="#">Television</a></td>
+                                            <td class="icon_del"><a href="#"><img src="../static/images/tv.jpg"/></a></td>
+                                            <td class="icon_del"><a href="#">10/11/2018</a></td>
+                                            <td class="icon_del"><a href="#">1</a></td>
+                                            <td class="icon_del"><a href="#">2</a></td>
+                                            <td class="icon_del"><a href="#">cancel</a></td>
+                                            <td class="icon_del"><a href="" >View Details</a></td>
+                                    </tr>
+                                    <tr class="request_lis">
+                                            <td><input type="checkbox" class="checkbox" /></td>
+                                            <td class="icon_del"><a href="#">Watch</a></td>
+                                            <td class="icon_del"><a href="#"><img src="../static/images/watch.jpg"/></a></td>
+                                            <td class="icon_del"><a href="#">13/11/2018</a></td>
+                                            <td class="icon_del"><a href="#">2</a></td>
+                                            <td class="icon_del"><a href="#">10</a></td>
+                                            <td class="icon_del"><a href="#">Pending</a></td>
+                                            <td class="icon_del"><a href="" >View Details</a></td>
+                                    </tr>
+                                </table>
+                                
+                                
+                                <!-- Pagging -->
+                                <div class="pagging">
+                                    <div class="AlignLeftt">Showing 1-12 of 44</div>
+                                    <div class="AlignRight">
+                                        <a href="#">Previous</a>
+                                        <a href="#">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <a href="#">4</a>
+                                        <a href="#">245</a>
+                                        <span>...</span>
+                                        <a href="#">Next</a>
+                                        <a href="#">View all</a>
+                                    </div>
+                                </div>
+                                <!-- End Pagging -->
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        <!-- End Box -->
+                     
+            </section>
+            <footer class="footer">    
+                    <div class="">
+                          <p class="copyright">Copyright &copy; 2018 <a href="#">SendIT Courier App </a></p>
+                          <p class="developer"><a href="#">Developed By venviko</a></p>
+                    </div>
+            </footer>
             
         </div>
-        <footer id="main_footer">    
-			<div class="">
-				  <p class="copyright">Copyright &copy; 2018. <a href="index.html">SendIT Courier Service App </a></p>
-				  <p class="developer">Develop By Venviko</p>
-			</div>
-	  </footer>
-                
-    </div>
-</body>
+    </body>
 
 </html>
