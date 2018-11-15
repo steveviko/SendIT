@@ -49,3 +49,7 @@ class UserActions:
             return {"Message": "No username  Found"}
         else:
             return current_user[0]
+
+    def fetch_all_users(self):
+        users = self.user_lists[:]
+        return users 
