@@ -18,3 +18,8 @@ class Orders:
         return order
     
     
+
+class UserActions:
+     #initialize user lists
+    def __init__(self):
+        self.user_lists = []
