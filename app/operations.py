@@ -40,3 +40,12 @@ class UserActions:
            
         self.user_lists.append(user_data )
         return new_user
+
+    def login_user(self, username):
+        # user.username = username
+        # current_user =self.user_lists.fetch_all_users(user.username)
+        current_user =[users for users in self.user_lists if  users['username']== username]
+        if not current_user:
+            return {"Message": "No username  Found"}
+        else:
+            return current_user[0]
