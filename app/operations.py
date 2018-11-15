@@ -33,6 +33,11 @@ class Orders:
         else:
             return "Parcel does not exist"
 
+    def get_user_order(self, user_id):
+        for user_order in self.parcel_lists:
+            if user_order["user_id"] == user_id:
+                return  user_order
+
 
 
 
