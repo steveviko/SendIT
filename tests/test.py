@@ -9,7 +9,8 @@ class TestsOrder(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
         self.app.testing = True
-        self.order = Orders()        
+        self.order = Orders()  
+        self.user = User()      
         self.sample_order= {          
             'item' :'Tv',
             'description':'LG',
@@ -20,13 +21,16 @@ class TestsOrder(unittest.TestCase):
     def test_order_creation(self):        
         self.assertIsInstance(self.order, Orders)
 
+    def test_user_obj_creation(self):        
+        self.assertIsInstance(self.user, User)
+
     def test_add_order_method(self):
         self.assertEqual(len(self.order.parcel_lists),0) 
         self.order.add_orders(self.sample_order)
         self.assertEqual(len(self.order.parcel_lists),1)             
         response = self.app.post("/api/v1/parcels", data = json.dumps(self.sample_order), content_type = 'application/json')
         self.assertEqual(response.status_code, 201)
-        # self.assertIn(b"Order", response.data)
+        
         
     # def test_get_all_orders(self):
     #     response = self.app.get("/api/v1/parcels")
