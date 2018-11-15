@@ -75,3 +75,11 @@ class UserActions:
     def fetch_all_users(self):
         users = self.user_lists[:]
         return users 
+
+    def create_user_order(self, user_id, item, description,destination):
+        user.user_id = user_id
+        parcel.item = item
+        parcel.description = description
+        parcel.destination = destination
+        insert_parcel= self.user_lists.append(user.user_id, parcel.item, parcel.description,parcel.destination)
+        return insert_parcel
