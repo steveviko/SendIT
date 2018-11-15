@@ -61,6 +61,39 @@ def create_user():
             return jsonify({'Message': 'New user registered successfully' }), 201
             
 
+
+@app.route('/api/v1/login', methods=['GET'])
+def login_user():
+    auth = request.authorization
+    if not auth or not auth.username or not auth.password:
+        return make_response('unauthorized accessss', 401, {'WWW-Authenticate':
+                                                            'Basic realm="Login required!"'})
+    user = user_obj.login_user(auth.username)
+    if not user:
+        return make_response('Could not verify', 401, {'WWW-Authenticate':
+                                                     'Basic realm="Login required!"'})
+   
+    
+    if check_password_hash(user['password'], auth.password):
+        token = jwt.encode(
+            {
+                'user_id': user[0], 'exp': datetime.datetime.utcnow() + datetime.timedelta(
+                    hours=48
+                )
+            }, app.config['SECRET_KEY']
+        )
+        return jsonify({'token': token.decode('UTF-8')}), 200
+    return make_response('unauthorized access', 401, {'WWW-Authenticate':
+                                                      'Basic realm="Login required!"'})
+
+
+   
+
+
+
+
+
+
 @app.route("/api/v1/users", methods=["GET"])
 def fetch_all_users():
     new_users_lists=user_obj.fetch_all_users()
@@ -96,3 +129,12 @@ def put_order(parcelId):
     else:
         order= order_obj.cancel_order(int(parcelId), order_status)        
         return jsonify({"message":"Order cancelled successfully", "parcelList":order}), 200
+
+
+@app.route("/api/v1/users/<int:user_id>/parcels", methods = ["GET"])
+def Fetch_user_orders(user_id):
+    user_orders = order_obj.get_user_order(user_id)
+    if user_orders:        
+        return jsonify({"orders": user_orders}),200
+    else:
+        return jsonify({"Error": "Sorry you have  incorrect user id"}), 400
