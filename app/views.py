@@ -100,9 +100,9 @@ def fetch_all_users():
   
     return jsonify({"Users":new_users_lists}), 200
 
-@app.route("/api/v1/parcels/<int:parcelId>", methods = ["GET"])
-def get_an_order(parcelId):
-    single_order = order_obj.Fetch_an_order(parcelId)
+@app.route("/api/v1/parcels/<int:parcelid>", methods = ["GET"])
+def get_an_order(parcelid):
+    single_order = order_obj.Fetch_an_order(parcelid)
     if single_order:        
         return jsonify({"order": single_order}),200
     else:

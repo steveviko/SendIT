@@ -10,7 +10,8 @@ class TestsOrder(unittest.TestCase):
         self.app = app.test_client()
         self.app.testing = True
         self.order = Orders()  
-        self.user = User()      
+        self.user = User() 
+        self.userAction =UserActions()     
         self.sample_order= {          
             'item' :'Tv',
             'description':'LG',
@@ -32,34 +33,36 @@ class TestsOrder(unittest.TestCase):
         self.assertEqual(response.status_code, 201)
         
         
-    # def test_get_all_orders(self):
-    #     response = self.app.get("/api/v1/parcels")
-    #     self.assertEqual(response.status_code, 200)
+    def test_get_all_orders(self):
+        response = self.app.get("/api/v1/parcels")
+        self.assertEqual(response.status_code, 200)
 
     
-    # def test_fetch_an_order(self):
-    #     response = self.app.get("/api/v1/parcels/1")
-    #     self.assertEqual(response.status_code, 200)
 
-    # def test_cancel_order(self):       
-    #     response = self.app.put("/api/v1/parcels/1/cancel", data = json.dumps(dict(item="watch",
-    #                                                         description="rolex",
-    #                                                         destination="kigali",
-    #                                                         quantity=2, 
-    #                                                         status="cancel")), content_type = 'application/json')
-    #     self.assertEqual(response.status_code, 200)
+    def test_cancel_order(self):       
+        response = self.app.put("/api/v1/parcels/1/cancel", data = json.dumps(dict(item="watch",
+                                                            description="rolex",
+                                                            destination="kigali",
+                                                            quantity=2, 
+                                                            status="cancel")), content_type = 'application/json')
+        self.assertEqual(response.status_code, 200)
 
-    # #check whether order status is cancel
-    # def test_status_is_cancel(self):
-    #     response = self.app.put('/api/v1/parcels/1/cancel',
-    #                       content_type='application/json', 
-    #                             data=json.dumps({"status": "cancel"})
-    #                             )
-    #     self.assertEqual(response.status_code, 200)  
+    #check whether order status is cancel
+    def test_status_is_cancel(self):
+        response = self.app.put('/api/v1/parcels/1/cancel',
+                          content_type='application/json', 
+                                data=json.dumps({"status": "cancel"})
+                                )
+        self.assertEqual(response.status_code, 200)  
 
-    # def test_user_id_type_input_returns_interger(self):        
-    #     self.num =self.order.get_user_order(2)
-    #     self.assertIsInstance(self.num, int)
-
+    
+    
+    def test_user_register(self):
+        username = "steve"
+        password = "w123"
+        assert self.userAction.register_user(username, password)
        
-  
+    def test_user_login(self):
+        username = "steve"
+        assert self.userAction.login_user(username)
+       
