@@ -25,6 +25,14 @@ class Orders:
             if order["order_id"] == parcelid: 
                 return order
 
+    def cancel_order(self, parcelid, status):
+        cancelled_order = [state for state in self.parcel_lists if state["parcelid"] == parcelid]
+        if cancelled_order:
+            cancelled_order[0]["status"] = status
+            return cancelled_order
+        else:
+            return "Parcel does not exist"
+
 
 
 
