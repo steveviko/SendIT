@@ -66,3 +66,33 @@ def fetch_all_users():
     new_users_lists=user_obj.fetch_all_users()
   
     return jsonify({"Users":new_users_lists}), 200
+
+@app.route("/api/v1/parcels/<int:parcelId>", methods = ["GET"])
+def get_an_order(parcelId):
+    single_order = order_obj.Fetch_an_order(parcelId)
+    if single_order:        
+        return jsonify({"order": single_order}),200
+    else:
+        return jsonify({"Error": "Sorry you have entered incorrect  id"}), 400
+
+
+@app.route("/api/v1/parcels", methods = ["GET"])
+def Fetch_all_orders():
+    orders = order_obj.Get_all_orders()
+    if len(orders) =="":
+        return jsonify({"order": "No orders available for delivery"}), 204   
+    return jsonify({'orders': orders}), 200
+
+@app.route('/api/v1/parcels/<parcelId>/cancel', methods=['PUT'])
+def put_order(parcelId):    
+    #cancel order on pending lists.
+   
+    data=request.data
+    result  =json.loads(data) 
+    order_status = result['status']
+    
+    if order_status not in ['Pending','cancel']:
+        return jsonify({"message":"Error. Invalid  status"}), 400
+    else:
+        order= order_obj.cancel_order(int(parcelId), order_status)        
+        return jsonify({"message":"Order cancelled successfully", "parcelList":order}), 200
