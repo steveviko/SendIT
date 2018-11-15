@@ -60,4 +60,9 @@ def create_user():
             user_obj.register_user(username, password)
             return jsonify({'Message': 'New user registered successfully' }), 201
             
-           
+
+@app.route("/api/v1/users", methods=["GET"])
+def fetch_all_users():
+    new_users_lists=user_obj.fetch_all_users()
+  
+    return jsonify({"Users":new_users_lists}), 200
