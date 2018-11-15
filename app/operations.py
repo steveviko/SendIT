@@ -17,7 +17,11 @@ class Orders:
         self.parcel_lists.append(order)
         return order
     
-    
+    def Get_all_orders(self):
+        return self.parcel_lists
+
+
+
 
 class UserActions:
      #initialize user lists
