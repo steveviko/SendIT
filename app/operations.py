@@ -20,6 +20,11 @@ class Orders:
     def Get_all_orders(self):
         return self.parcel_lists
 
+    def Fetch_an_order(self, parcelid):
+        for order in self.parcel_lists:
+            if order["order_id"] == parcelid: 
+                return order
+
 
 
 
