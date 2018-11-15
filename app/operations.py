@@ -23,3 +23,20 @@ class UserActions:
      #initialize user lists
     def __init__(self):
         self.user_lists = []
+
+    
+    def register_user(self, username, password):
+        user.username = username
+        user.password = password
+        hash_password = generate_password_hash(user.password, method='sha256')
+        user.user_id= int(uuid.uuid4().clock_seq)
+        new_user =[user.user_id,user.username, hash_password ]
+        
+        for users in new_user:
+            user_data={}
+            user_data["user_id"] = int(uuid.uuid4().clock_seq)
+            user_data["username"] = username
+            user_data["password"] = generate_password_hash(user.password, method='sha256')
+           
+        self.user_lists.append(user_data )
+        return new_user
