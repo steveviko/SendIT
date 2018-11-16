@@ -144,7 +144,7 @@ def put_order(parcelId):
             return jsonify({"message":"Error. Invalid  status"}), 400
         else:
             order= order_obj.cancel_order(int(parcelId), order_status)        
-            return jsonify({"message":" Parcel Order cancelled successfully", "parcelList":order}), 200
+            return jsonify({"message":" Parcel cancelled successfully", "parcel":order}), 200
     else:
         return jsonify({"Error": "Method Not allowed"}) 
 
