@@ -123,30 +123,40 @@ def get_an_order(parcelid):
 
 @app.route("/api/v1/parcels", methods = ["GET"])
 def Fetch_all_orders():
-    orders = order_obj.Get_all_orders()
-    if len(orders) =="":
-        return jsonify({"order": "No orders available for delivery"}), 204   
-    return jsonify({'Parcels': orders}), 200
+    if request.method == 'GET':
+        orders = order_obj.Get_all_orders()
+        if len(orders) =="":
+            return jsonify({"order": "No orders available for delivery"}), 204   
+        return jsonify({'Parcels': orders}), 200
+    else:
+        return jsonify({"Error": "Method Not allowed"}) 
+
 
 @app.route('/api/v1/parcels/<parcelId>/cancel', methods=['PUT'])
 def put_order(parcelId):    
     #cancel order on pending lists.
-   
-    data=request.data
-    result  =json.loads(data) 
-    order_status = result['status']
-    
-    if order_status not in ['Pending','cancel']:
-        return jsonify({"message":"Error. Invalid  status"}), 400
+    if request.method == 'PUT':
+        data=request.data
+        result  =json.loads(data) 
+        order_status = result['status']
+        
+        if order_status not in ['Pending','cancel']:
+            return jsonify({"message":"Error. Invalid  status"}), 400
+        else:
+            order= order_obj.cancel_order(int(parcelId), order_status)        
+            return jsonify({"message":" Parcel Order cancelled successfully", "parcelList":order}), 200
     else:
-        order= order_obj.cancel_order(int(parcelId), order_status)        
-        return jsonify({"message":" Parcel Order cancelled successfully", "parcelList":order}), 200
+        return jsonify({"Error": "Method Not allowed"}) 
 
 
 @app.route("/api/v1/users/<int:user_id>/parcels", methods = ["GET"])
 def Fetch_user_orders(user_id):
-    user_orders = order_obj.get_user_order(user_id)
-    if user_orders:        
-        return jsonify({"user orders": user_orders}),200
+    if request.method == 'GET':
+        user_orders = order_obj.get_user_order(user_id)
+        if user_orders:        
+            return jsonify({"user orders": user_orders}),200
+        else:
+            return jsonify({"Error": "Sorry you have  incorrect user id"}), 400
+
     else:
-        return jsonify({"Error": "Sorry you have  incorrect user id"}), 400
+        return jsonify({"Error": "Method Not allowed"}) 
