@@ -37,6 +37,9 @@ def create_order():
           
             parcel =order_obj.add_orders(order)          
             return jsonify({"ParcelList":parcel}), 201
+    else:
+        return jsonify({"Error": "Method Not allowed"})   
+        
         
 @app.route('/api/v1/users', methods=['POST'])
 def create_user():
@@ -59,7 +62,8 @@ def create_user():
         else:
             user_obj.register_user(username, password)
             return jsonify({'Message': 'New user registered successfully' }), 201
-            
+    else:
+        return jsonify({"Error": "Method Not allowed"})      
 
 
 @app.route('/api/v1/login', methods=['GET'])
@@ -96,17 +100,25 @@ def login_user():
 
 @app.route("/api/v1/users", methods=["GET"])
 def fetch_all_users():
-    new_users_lists=user_obj.fetch_all_users()
-  
-    return jsonify({"Users":new_users_lists}), 200
+    if request.method == 'GET':
+        new_users_lists=user_obj.fetch_all_users()  
+        return jsonify({"Users":new_users_lists}), 200
 
+    else:
+        return jsonify({"Error": "Method Not allowed"})   
+
+    
 @app.route("/api/v1/parcels/<int:parcelid>", methods = ["GET"])
 def get_an_order(parcelid):
-    single_order = order_obj.Fetch_an_order(parcelid)
-    if single_order:        
-        return jsonify({"order": single_order}),200
+    if request.method == 'GET':
+        single_order = order_obj.Fetch_an_order(parcelid)
+        if single_order:        
+            return jsonify({"parcel": single_order}),200
+        else:
+            return jsonify({"Error": "Sorry you have entered incorrect  id"}), 400
+
     else:
-        return jsonify({"Error": "Sorry you have entered incorrect  id"}), 400
+        return jsonify({"Error": "Method Not allowed"}) 
 
 
 @app.route("/api/v1/parcels", methods = ["GET"])
@@ -114,7 +126,7 @@ def Fetch_all_orders():
     orders = order_obj.Get_all_orders()
     if len(orders) =="":
         return jsonify({"order": "No orders available for delivery"}), 204   
-    return jsonify({'orders': orders}), 200
+    return jsonify({'Parcels': orders}), 200
 
 @app.route('/api/v1/parcels/<parcelId>/cancel', methods=['PUT'])
 def put_order(parcelId):    
@@ -128,13 +140,13 @@ def put_order(parcelId):
         return jsonify({"message":"Error. Invalid  status"}), 400
     else:
         order= order_obj.cancel_order(int(parcelId), order_status)        
-        return jsonify({"message":"Order cancelled successfully", "parcelList":order}), 200
+        return jsonify({"message":" Parcel Order cancelled successfully", "parcelList":order}), 200
 
 
 @app.route("/api/v1/users/<int:user_id>/parcels", methods = ["GET"])
 def Fetch_user_orders(user_id):
     user_orders = order_obj.get_user_order(user_id)
     if user_orders:        
-        return jsonify({"orders": user_orders}),200
+        return jsonify({"user orders": user_orders}),200
     else:
         return jsonify({"Error": "Sorry you have  incorrect user id"}), 400

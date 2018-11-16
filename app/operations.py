@@ -26,10 +26,10 @@ class Orders:
                 return order
 
     def cancel_order(self, parcelid, status):
-        cancelled_order = [state for state in self.parcel_lists if state["parcelid"] == parcelid]
-        if cancelled_order:
-            cancelled_order[0]["status"] = status
-            return cancelled_order
+        _order = [state for state in self.parcel_lists if state["parcelid"] == parcelid]
+        if _order:
+            _order[0]["status"] = status
+            return _order
         else:
             return "Parcel does not exist"
 
