@@ -23,11 +23,11 @@ class Database:
         self.cur.execute(user_table)
 
     def create_orders_table(self):
-        """Create table to store parcel orders."""
-        orders_table = ("CREATE TABLE IF NOT EXISTS orders"
-                        "(order_id serial  NOT NULL PRIMARY KEY,"
+        """Create table to store parcel delivery orders."""
+        parcels_table = ("CREATE TABLE IF NOT EXISTS Parcels"
+                        "(parcel_id serial  NOT NULL PRIMARY KEY,"
                         "destination VARCHAR(50) NOT NULL,"
                         "current_location VARCHAR(50) NOT NULL,"
                         "status VARCHAR(11) NOT NULL,"
                         "user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))")
-        self.cur.execute(orders_table)
+        self.cur.execute(parcels_table)
