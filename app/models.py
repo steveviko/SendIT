@@ -1,26 +1,13 @@
-from flask import jsonify, request,json
+from app import app
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
-class User:
-    """
-    Creates a user object for each order.
-    """
+class Database:    
     def __init__(self):
-        self.username =None
-        self.user_id = None 
-        self.password = None
+        """Connect to the database."""        
+        self.conn = psycopg2.connect("dbname=sendit user=postgres password=password host=localhost")
+        self.conn.autocommit = True
+        self.cur = self.conn.cursor()
+        self.dict_cursor=self.conn.cursor(cursor_factory=RealDictCursor)
 
-   
-
-
-class parcel:
-    """
-    Creates a parcel object for each order.
-    """
-    def __init__(self):
-        self.item = None
-        self.description = None
-        self.destination = None
-        self.parcelid = None
-        self.status = "Pending"
-
-        
+print("Connected to the database")
