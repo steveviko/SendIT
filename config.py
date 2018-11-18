@@ -5,7 +5,7 @@ class BaseConfig:
 
 class DevelopmentConfig(BaseConfig):
 
-    DEBUG = True
+    DEVELOPMENT = True
     TESTNG = True
     
 
