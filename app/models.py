@@ -10,4 +10,24 @@ class Database:
         self.cur = self.conn.cursor()
         self.dict_cursor=self.conn.cursor(cursor_factory=RealDictCursor)
 
-print("Connected to the database")
+        print("Connected to the database")
+
+    def create_user_table(self):
+        """Create table to store users data."""
+        user_table = ("CREATE TABLE IF NOT EXISTS users"
+                    "(user_id serial  NOT NULL PRIMARY KEY,"                   
+                    "username VARCHAR(50) UNIQUE NOT NULL,"
+                    "email VARCHAR(80) UNIQUE NOT NULL,"
+                    "hash_password VARCHAR(200) NOT NULL)")
+
+        self.cur.execute(user_table)
+
+    def create_orders_table(self):
+        """Create table to store parcel orders."""
+        orders_table = ("CREATE TABLE IF NOT EXISTS orders"
+                        "(order_id serial  NOT NULL PRIMARY KEY,"
+                        "destination VARCHAR(50) NOT NULL,"
+                        "current_location VARCHAR(50) NOT NULL,"
+                        "status VARCHAR(11) NOT NULL,"
+                        "user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))")
+        self.cur.execute(orders_table)
