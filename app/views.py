@@ -3,12 +3,12 @@ from app import create_app
 import jwt
 from werkzeug.security import check_password_hash
 import datetime
-from app.operations import Orders,UserActions
+# from app.operations import Orders,UserActions
 
 
 
-order_obj = Orders()
-user_obj =UserActions()
+# order_obj = Orders()
+# user_obj =UserActions()
 
 
 app = create_app()
