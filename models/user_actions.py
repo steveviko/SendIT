@@ -13,11 +13,13 @@ class UserActions:
         self.db_Object = DbOperations()
         
 
-    def user_register(self, email, password):
+    def user_register(self,email, password):
+        
         userObject.email = email
         userObject.password = password
         hash_password = generate_password_hash(
             userObject.password, method='sha256')
+      
         self.db_Object.register_user(
             userObject.email, userObject.password, hash_password
         )

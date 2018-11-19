@@ -13,7 +13,7 @@ class DbOperations:
 
         sql = """INSERT INTO users(username,email, hash_password)
                 VALUES(%s,%s, %s);"""
-        return  self.connect.conn(sql, username, email, hash_password)
+        return  self.connect.connect(sql, username, email, hash_password)
 
 
 
