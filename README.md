@@ -9,21 +9,21 @@
 - These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 
-### Requirements
+## Requirements
 - For development, you will only need flask installed on your environement
 **Clone this _Repository_**
-  ```
-   $ https://github.com/steveviko/SendIT/tree/develop  to your computer
-   $ cd SendIT
- ```
+  
+$ https://github.com/steveviko/SendIT/tree/develop  to your computer
+$ cd SendIT
+ 
  ###  Installation Steps
-  ```
+  
     1.Make a Virtual Environment
     2.Connect our project with our Environment
     3.Set Project Directory
     4.Activate virtual enviroment by typing ```Workon```
     5.Pip Install Flask!
- ```
+ 
 
  ## Tools
 
