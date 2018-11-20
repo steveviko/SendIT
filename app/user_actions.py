@@ -1,4 +1,4 @@
-from app.views import app
+# from app.views import app
 from .user import User
 from .dboperations import DbOperations
 from .parcels import Parcels
@@ -23,3 +23,5 @@ class UserActions:
             userObject.email, userObject.password, hash_password
         )
         return {'message': 'user sucessfully created'}
+
+    

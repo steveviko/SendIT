@@ -1,4 +1,4 @@
-from app import app
+# from app import app
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
@@ -17,8 +17,9 @@ class Database:
         user_table = ("CREATE TABLE IF NOT EXISTS users"
                     "(user_id serial  NOT NULL PRIMARY KEY,"                   
                     "username VARCHAR(50) UNIQUE NOT NULL,"
-                    "email VARCHAR(80) UNIQUE NOT NULL,"
-                    "hash_password VARCHAR(200) NOT NULL)")
+                    "email VARCHAR(80) UNIQUE NOT NULL,"                    
+                    "hash_password VARCHAR(200) NOT NULL,"
+                    "role VARCHAR(10) NOT NULL)")
 
         self.cur.execute(user_table)
 

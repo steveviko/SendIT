@@ -3,7 +3,7 @@ from app import create_app
 import jwt
 from werkzeug.security import check_password_hash
 import datetime
-from .user_actions import UserActions
+from app.user_actions import UserActions
 
 user_obj = UserActions()
 

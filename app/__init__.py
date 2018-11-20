@@ -11,7 +11,7 @@ def create_app():
 
 
 from app.views import app
-# from app.models import Database
-# db=Database()
-# db.create_user_table()
-# db.create_parcels_table()
+from app.models import Database
+db=Database()
+db.create_user_table()
+db.create_parcels_table()
