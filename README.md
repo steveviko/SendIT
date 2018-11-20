@@ -8,21 +8,33 @@
 ## Getting Started
 - These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Installation
+
+### Requirements
+- For development, you will only need flask installed on your environement
 **Clone this _Repository_**
-
- - [clone](https://github.com/steveviko/SendIT/tree/develop) to your computer
-
+  ```
+   $ https://github.com/steveviko/SendIT/tree/develop  to your computer
+   $ cd SendIT
+ ```
+ ###  Installation Steps
+  ```
+    1.Make a Virtual Environment
+    2.Connect our project with our Environment
+    3.Set Project Directory
+    4.Activate virtual enviroment by typing ```Workon```
+    5.Pip Install Flask!
+ ```
 
  ## Tools
  ``` 
-●	Server-Side Framework: <Flask Python Framework>
-●	Linting Library: <Pylint, a Python Linting Library>
-●	Style Guide: <PEP8 Style Guide>
-●	Testing Framework: <unittest, test runner package>
+-` Python3.6 `- A High Level Programming Language
+-`Flask `- Python based web framework
+-`Pytest` - A Python testing framework which makes it easy to write small tests, yet scales to support complex functional    testing for applications and libraries
+-`Virtualenv` - A tool to create isolated virtual environment
+-` Postgresql` - PostgreSQL is a powerful, open source object-relational database system.
  ```
 ### Running the tests
-To run tests run this command below in your terminal
+To run tests execute this command below in your terminal
 
 ```
 $ nosetests example_unit_test.py
@@ -38,8 +50,8 @@ $ pip install - r requirements.txt
 ```
 **Run _app_ by**
 ```
-$ Python run.py
-$ Run the server At the terminal or console type
+$ python run.py
+$ At the terminal or console execute the run.py file
 ```
 ## Project APIs
 |           End Point | Functionality |
