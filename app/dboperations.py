@@ -21,8 +21,23 @@ class DbOperations:
         cursor.execute(command)
         return account
 
-    def check_username(self, account):
-        command = "SELECT username,hash_password,role from users WHERE username= '{}'".format(account["username"])
+    def check_username(self, account_username):
+        command = "SELECT user_id,username,hash_password,role from users WHERE username= '{}'".format(account_username)
         dictcur.execute(command)
         data = dictcur.fetchone()
         return data
+
+    # def hash_password(self,hashed_password, login_password):
+    #     return check_password_hash(hashed_password["hash_password"], login_password["hash_password"])
+
+    # def fetch_user(self, username):
+    #     query = self.query_user(username)
+    #     return query.fetchone()
+
+    def query_user(self, account):
+        command = "SELECT * FROM users WHERE username= '{}'".format(account["username"])
+        dictcur.execute(command)
+        data = dictcur.fetchone()
+        return data
+
+        

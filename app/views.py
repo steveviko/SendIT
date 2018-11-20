@@ -1,7 +1,7 @@
 from flask import request, jsonify,make_response, redirect, json, Response, abort
 from app import create_app
 import jwt
-from werkzeug.security import check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 from app.user_actions import UserActions
 from app.validation import validator
@@ -60,3 +60,36 @@ def signup_user():
 
 
 
+@app.route('/api/v2/login', methods=['POST'])
+def login_user():
+    auth = json.loads(request.data)
+    
+    if not auth or not auth['username'] or not auth['password']:
+        return make_response('unauthorized accessss', 401, {'WWW-Authenticate':
+                                                            'Basic realm="Login required!"'})
+    user = db_obj.check_username(auth['username'])
+    if not user:
+        return make_response('Could not verify', 401, {'WWW-Authenticate':
+                                                     'Basic realm="Login required!"'})
+    # password = db_obj.check_username(auth.password,)
+    
+    if check_password_hash(user["hash_password"], auth['password']):
+        # return str(user['user_id'])
+        token = jwt.encode(
+            {
+                'user_id': user['user_id'], 'exp': datetime.datetime.utcnow() + datetime.timedelta(
+                    hours=48
+                )
+            }, app.config['SECRET_KEY']
+        )
+        return jsonify({'token': token.decode('UTF-8')}), 200
+    return make_response('unauthorized access', 401, {'WWW-Authenticate':
+                                                      'Basic realm="Login required!"'})
+
+    # try:
+    #       result = request.data
+    #     data=json.loads(result)
+    #     info = users.user_login(data["username"], data["password"])
+    #     return info
+    # except Exception as err:
+    #     return jsonify({"message": "The {} field is missing".format(str(err))}), 400
