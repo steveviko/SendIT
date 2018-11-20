@@ -18,3 +18,9 @@ class DbOperations:
                 , generate_password_hash(account["password"]))
         cursor.execute(command)
         return account
+
+    def check_username(self, account):
+        command = "SELECT username,hash_password,role from users WHERE username= '{}'".format(account["username"])
+        dictcur.execute(command)
+        data = dictcur.fetchone()
+        return data
