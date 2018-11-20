@@ -26,33 +26,31 @@
  ```
 
  ## Tools
- ``` 
+
 -` Python3.6 `- A High Level Programming Language
 -`Flask `- Python based web framework
 -`Pytest` - A Python testing framework which makes it easy to write small tests, yet scales to support complex functional    testing for applications and libraries
 -`Virtualenv` - A tool to create isolated virtual environment
 -` Postgresql` - PostgreSQL is a powerful, open source object-relational database system.
- ```
+ 
 ### Running the tests
 To run tests execute this command below in your terminal
 
-```
 $ nosetests example_unit_test.py
-```
+
 **Create virtual environment and install it**
-```
+
 $ virtualenv - -python = python3 venv
 $ source / venv/bin/activate
-```
+
 **Install all the necessary _dependencies_ by**
-```
 $ pip install - r requirements.txt
-```
+
 **Run _app_ by**
-```
+
 $ python run.py
 $ At the terminal or console execute the run.py file
-```
+
 ## Project APIs
 |           End Point | Functionality |
 | -------------------------------------- | ----------------------------------------- |
