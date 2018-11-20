@@ -24,4 +24,16 @@ class UserActions:
         )
         return {'message': 'user sucessfully created'}
 
-    
+    def add_user(self,account):
+        """ insert a new user into the users table """
+        command = "INSERT INTO users(username, email, password, role) VALUES(\
+                '{}',  '{}', '{}', 'user')".format(account["username"],  account["email"]\
+                , generate_password_hash(account["password"]))
+        cursor.execute(command)
+        return account
+
+    def check_username(self, account):
+        command = "SELECT username,password,role from users WHERE username= '{}'".format(account["username"])
+        dictcur.execute(command)
+        data = dictcur.fetchone()
+        return data

@@ -4,8 +4,14 @@ import jwt
 from werkzeug.security import check_password_hash
 import datetime
 from app.user_actions import UserActions
+from app.validation import validator
+from app.user import User
+from app.dboperations import DbOperations
 
 user_obj = UserActions()
+validate = validator()
+user = User()
+db_obj = DbOperations()
 
 
 
@@ -23,17 +29,30 @@ def signup_user():
             return jsonify({'error': 'unsupported Request'}), 400
         elif 'username' not in data:
             return jsonify({'error': 'username is requred'}), 400
+        elif 'email' not in data:
+            return jsonify({'error': 'email is required'}), 400
         elif 'password' not in data:
             return jsonify({'error': 'password is required'}), 400
-        username=data["username"]
-        password=data['password']          
-
-        if username=="" or password=="":
-            return jsonify({"Error": "No user Found"}), 400
-            
+        elif 'role' not in data:
+            return jsonify({'error': 'role is required'}), 400
+        
+        account = {
+                "username": data["username"],
+                "email": data["email"],
+                "password": data["password"],
+                "role": data["role"]
+            }       
+        empty_space = validate.validate_empty_space(account)
+        if empty_space:
+            return jsonify({"Error": "invalid input"}), 400
+        None_username = db_obj.check_username(account)
+        if not None_username:
+            new_account = db_obj.add_user(account)
+            return jsonify({'Message': 'New user registered successfully','user':new_account }), 201
         else:
-            user_obj.register_user(username, password)
-            return jsonify({'Message': 'New user registered successfully' }), 201
+            return jsonify({"Error": "user already exists"}), 409
+            
+        
     else:
         return jsonify({"Error": "Method Not allowed"})      
 
