@@ -38,8 +38,8 @@ class DbOperations:
 
     def get_parcels(self):
         """Returns all parcel delivery orders in the parcel list."""
-        command="SELECT parcel_id, item,description,status,user_id, current_location, destination FROM parcels \
-       INNER JOIN users ON parcels.user_id = users.user_id"
+        command="SELECT parcel_id, item,description,status,user_id, current_location, destination FROM parcels"
+    #    INNER JOIN users ON parcels.user_id = users.user_id
         dictcur.execute(command) 
         data=dictcur.fetchall()     
         return data  

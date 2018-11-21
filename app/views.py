@@ -115,3 +115,9 @@ def create_parcels():
         new_parcel=db_obj.add_parcel(parcel,user_id=1)
         return jsonify({'message': 'parcel successfully created','parcel':new_parcel}), 201
     return 
+
+@app.route("/api/v2/parcels", methods=["GET"])
+def get_all_parcelss():
+    """Implements the get all parcel delivery orders api."""   
+    parcel_list = db_obj.get_parcels()
+    return jsonify({'parcels': parcel_list}), 200
