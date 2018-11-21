@@ -59,6 +59,15 @@ class DbOperations:
         dictcur.execute(return_parcel_status)
         data = dictcur.fetchall()
         return data
+
+    def update_parcel_destination(self, parcel_id, destination):
+        """Updates the destination  of a parcel."""
+        command = "UPDATE parcels SET destination='{}' WHERE parcel_id ='{}'".format(destination,parcel_id)
+        cursor.execute(command)
+        return_parcel_destination = "SELECT * FROM parcels WHERE parcel_id = '{}'".format(parcel_id)
+        dictcur.execute(return_parcel_destination)
+        data = dictcur.fetchall()
+        return data
     # def hash_password(self,hashed_password, login_password):
     #     return check_password_hash(hashed_password["hash_password"], login_password["hash_password"])
 
