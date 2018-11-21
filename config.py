@@ -1,15 +1,16 @@
 import os
-class BaseConfig:
+class Config:
 
     DEBUG = False
 
-class DevelopmentConfig(BaseConfig):
+class DevelopmentConfig(Config):
 
-    DEVELOPMENT = True
+    DEBUG = True
     TESTNG = True
-    
+    DATABASE_URL = os.environ.get('DATABASE_URL')
 
-class TestConfig(BaseConfig):
-   
+class TestConfig(Config):
+
+    DEBUG = False
     TESTING = True
-   
+    DATABASE_URL = os.environ.get('DATABASE_URL')
