@@ -2,6 +2,7 @@ __pycache__
 .vscode/
 .venv
 .idea
+.env
 venv
 app/__pycache__
 tests/__pycache__
