@@ -123,11 +123,21 @@ def get_all_parcelss():
     return jsonify({'parcels': parcel_list}), 200
 
 @app.route("/api/v2/parcels/<parcel_id>", methods=["GET"])
-
 def get_single_parcel(parcel_id):
-    """Implements api to get a specific parcel delivery order."""   
+    """Implements api to get a specific parcel delivery order.""" 
 
     parcel = db_obj.get_one_parcel(int(parcel_id))    
     return jsonify({"Parcel": parcel}), 200
 
-  
+@app.route("/api/v2/parcels/<parcel_id>/status", methods=["PUT"])
+def update_order(parcel_id):
+    """Implements api that changes parcel delivery order status."""
+    data =json.loads(request.data)
+    parcel_status = data["status"]
+    if  not parcel_id.isdigit():
+        return jsonify({"Error": "Please input correct parcel  id"}), 400     
+    elif parcel_status:
+        updated = db_obj.update_parcel_status(int(parcel_id), parcel_status)
+        return jsonify({"parcel": updated}), 201  
+    else:
+        return jsonify({"Error": "parcel does not exist"}), 404
