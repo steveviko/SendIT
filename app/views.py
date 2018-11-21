@@ -1,6 +1,7 @@
 from flask import request, jsonify,make_response, redirect, json, Response, abort
 from app import create_app
 import jwt
+import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 from app.user_actions import UserActions
@@ -86,10 +87,36 @@ def login_user():
     return make_response('unauthorized access', 401, {'WWW-Authenticate':
                                                       'Basic realm="Login required!"'})
 
-    # try:
-    #       result = request.data
-    #     data=json.loads(result)
-    #     info = users.user_login(data["username"], data["password"])
-    #     return info
-    # except Exception as err:
-    #     return jsonify({"message": "The {} field is missing".format(str(err))}), 400
+@app.route('/api/v2/parcels', methods=['POST'])
+def create_parcels():
+    data =json.loads(request.data)
+    if not data:
+        return jsonify({'message': 'unsupported format'}), 400
+    elif 'item' not in data:
+        return jsonify({'message': 'item  is requred'}), 400
+    elif 'description' not in data:
+        return jsonify({'message': 'description  is required'}), 400
+    elif 'destination' not in data:
+        return jsonify({'message': 'destination  is required'}), 400
+    elif 'current_location' not in data:
+        return jsonify({'message': 'current_location  is required'}), 400
+    # elif 'status' not in data:
+    #     return jsonify({'message': 'status  is required'}), 400
+    elif "item"=="" or "description"=="" or "destination"==""or "current_lcation"=="":
+        return jsonify({'message': 'Fields in all required values'}), 400
+    if data:
+        parcel={
+        "item" : data['item'],
+        "description" :data['description'],
+        "destination" :data['destination'],
+        "current_location" :data['current_location']}
+        # "status" :data['status']}
+        #  = data['description']
+        # if len(data["description"])  4:
+            # return jsonify({'message': 'description can not be less than 6 words'}), 400
+        # if data["description"].isdigit():
+            # return jsonify({'message': 'description can not contain only numbers'}), 400
+
+        new_parcel=db_obj.add_parcel(parcel,user_id=1)
+        return jsonify({'message': 'parcel successfully created','parcel':new_parcel}), 201
+    return 

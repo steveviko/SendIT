@@ -27,9 +27,11 @@ class Database:
         """Create table to store parcel delivery orders."""
         parcels_table = ("CREATE TABLE IF NOT EXISTS Parcels"
                         "(parcel_id serial  NOT NULL PRIMARY KEY,"
+                        "item VARCHAR(50) NOT NULL,"
+                        "description VARCHAR(50) NOT NULL,"
                         "destination VARCHAR(50) NOT NULL,"
-                        "current_location VARCHAR(50) NOT NULL,"
                         "status VARCHAR(11) NOT NULL,"
+                        "current_location VARCHAR(50) NOT NULL,"                        
                         "user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))")
         self.cur.execute(parcels_table)
 
