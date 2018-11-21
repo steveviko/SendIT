@@ -1,11 +1,13 @@
 # from app import app
+import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
 class Database:    
     def __init__(self):
-        """Connect to the database."""        
-        self.conn = psycopg2.connect("dbname=sendit user=postgres password=password host=localhost")
+        """Connect to the database."""   
+        db  = os.getenv['DATABASE']
+        self.conn = psycopg2.connect(user="postgres" ,password="password" ,host="localhost", database=db)
         self.conn.autocommit = True
         self.cur = self.conn.cursor()
         self.dict_cursor=self.conn.cursor(cursor_factory=RealDictCursor)
