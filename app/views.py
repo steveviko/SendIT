@@ -130,7 +130,7 @@ def get_single_parcel(parcel_id):
     return jsonify({"Parcel": parcel}), 200
 
 @app.route("/api/v2/parcels/<parcel_id>/status", methods=["PUT"])
-def update_order(parcel_id):
+def update_status(parcel_id):
     """Implements api that changes parcel delivery order status."""
     data =json.loads(request.data)
     parcel_status = data["status"]
@@ -138,6 +138,19 @@ def update_order(parcel_id):
         return jsonify({"Error": "Please input correct parcel  id"}), 400     
     elif parcel_status:
         updated = db_obj.update_parcel_status(int(parcel_id), parcel_status)
-        return jsonify({"parcel": updated}), 201  
+        return jsonify({"parcel status changed": updated}), 201  
+    else:
+        return jsonify({"Error": "parcel does not exist"}), 404
+
+@app.route("/api/v2/parcels/<parcel_id>/destination", methods=["PUT"])
+def update_destination(parcel_id):
+    """Implements api that changes parcel delivery order destination."""
+    data =json.loads(request.data)
+    parcel_destination = data["destination"]
+    if  not parcel_id.isdigit():
+        return jsonify({"Error": "Please input correct parcel  id"}), 400     
+    elif parcel_destination:
+        updated = db_obj.update_parcel_destination(int(parcel_id), parcel_destination)
+        return jsonify({"parcel destination changed": updated}), 201  
     else:
         return jsonify({"Error": "parcel does not exist"}), 404
