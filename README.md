@@ -27,42 +27,48 @@ $ cd SendIT
 
  ## Tools
 
--` Python3.6 `- A High Level Programming Language
--`Flask `- Python based web framework
--`Pytest` - A Python testing framework which makes it easy to write small tests, yet scales to support complex functional    testing for applications and libraries
--`Virtualenv` - A tool to create isolated virtual environment
--` Postgresql` - PostgreSQL is a powerful, open source object-relational database system.
+- ` Python3.6 `- A High Level Programming Language
+- `Flask `- Python based web framework
+- `Pytest` - A Python testing framework which makes it easy to write small tests, yet scales to support complex         functional    testing for applications and libraries
+- `Virtualenv` - A tool to create isolated virtual environment
+- ` Postgresql` - PostgreSQL is a powerful, open source object-relational database system.
  
 ### Running the tests
 To run tests execute this command below in your terminal
-
+```
 $ nosetests example_unit_test.py
-
+```
 **Create virtual environment and install it**
-
+```
 $ virtualenv - -python = python3 venv
 $ source / venv/bin/activate
-
+```
 **Install all the necessary _dependencies_ by**
+```
 $ pip install - r requirements.txt
-
+```
 **Run _app_ by**
-
+```
 $ python run.py
 $ At the terminal or console execute the run.py file
-
+```
 ## Project APIs
 |           End Point | Functionality |
 | -------------------------------------- | ----------------------------------------- |
-|     POST   api/v1/parcels      | Create a parcel delivery order |
-|PUT/parcels/<parcelId>/cancel|Cancel the specific parcel delivery order |
-| GET /parcels/<parcelId> | Fetch a specific parcel delivery order|
-| GET /users/<userId>/parcels | Fetch all parcel delivery orders by a specific user |
-|     GET  api/v1/parcels  | Fetch all parcel delivery orders |
+|     POST   api/v2/parcels/auth/signup      | Create a parcel delivery order |
+| POST   api/v2/parcels /auth/login     | Create a parcel delivery order |
+| POST   api/v2/parcels      | Create a parcel delivery order |
+|PUT  api/v2/parcels/<parcelId>/destination|Change the location of a specific parcel delivery order |
+|PUT  api/v2/parcels/<parcelId>/presentLocation|Change the present location of a specific parcel delivery order |
+|PUT  api/v2/parcels/<parcelId>/status|Change the status of a specific parcel delivery order |
+| GET api/v2/parcels/<parcelId> | Fetch a specific parcel delivery order|
+| GET api/v2/users/<userId>/parcels | Fetch all parcel delivery orders by a specific user |
+|     GET  api/v2/parcels  | Fetch all parcel delivery orders |
 
 Open the browser to view the endpoints with their specifications
-* localhost:5000 
-
+```
+localhost:5000 
+```
 
 ## Contributors
 - [Steven Opio](https://github.com/steveviko)
