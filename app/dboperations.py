@@ -17,11 +17,17 @@ class DbOperations:
         """ insert a new user into the users table """
         command = "INSERT INTO users(username, email,hash_password, role) VALUES(\
                 '{}',  '{}', '{}', 'user')".format(account["username"],  account["email"]\
-                , generate_password_hash(account["password"]))
+                , generate_password_hash(account["hash_password"]))
         cursor.execute(command)
         return account
 
     def check_username(self, account_username):
+        command = "SELECT user_id,username,hash_password,role from users WHERE username= '{}'".format(account_username['username'])
+        dictcur.execute(command)
+        data = dictcur.fetchone()
+        return data
+
+    def query_username(self, account_username):
         command = "SELECT user_id,username,hash_password,role from users WHERE username= '{}'".format(account_username)
         dictcur.execute(command)
         data = dictcur.fetchone()

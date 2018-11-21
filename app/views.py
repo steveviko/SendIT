@@ -32,16 +32,16 @@ def signup_user():
             return jsonify({'error': 'username is requred'}), 400
         elif 'email' not in data:
             return jsonify({'error': 'email is required'}), 400
-        elif 'password' not in data:
+        elif 'hash_password' not in data:
             return jsonify({'error': 'password is required'}), 400
-        elif 'role' not in data:
-            return jsonify({'error': 'role is required'}), 400
+        # elif 'role' not in data:
+        #     return jsonify({'error': 'role is required'}), 400
         
         account = {
                 "username": data["username"],
                 "email": data["email"],
-                "password": data["password"],
-                "role": data["role"]
+                "hash_password": data["hash_password"]
+                # "role": data["role"]
             }       
         empty_space = validate.validate_empty_space(account)
         if empty_space:
@@ -68,7 +68,7 @@ def login_user():
     if not auth or not auth['username'] or not auth['password']:
         return make_response('unauthorized accessss', 401, {'WWW-Authenticate':
                                                             'Basic realm="Login required!"'})
-    user = db_obj.check_username(auth['username'])
+    user = db_obj.query_username(auth['username'])
     if not user:
         return make_response('Could not verify', 401, {'WWW-Authenticate':
                                                      'Basic realm="Login required!"'})
