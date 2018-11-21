@@ -121,3 +121,13 @@ def get_all_parcelss():
     """Implements the get all parcel delivery orders api."""   
     parcel_list = db_obj.get_parcels()
     return jsonify({'parcels': parcel_list}), 200
+
+@app.route("/api/v2/parcels/<parcel_id>", methods=["GET"])
+
+def get_single_parcel(parcel_id):
+    """Implements api to get a specific parcel delivery order."""   
+
+    parcel = db_obj.get_one_parcel(int(parcel_id))    
+    return jsonify({"Parcel": parcel}), 200
+
+  
