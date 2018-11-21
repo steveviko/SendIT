@@ -68,6 +68,15 @@ class DbOperations:
         dictcur.execute(return_parcel_destination)
         data = dictcur.fetchall()
         return data
+
+    def update_parcel_current_location(self, parcel_id, current_location):
+        """Updates the current_location  of a parcel."""
+        command = "UPDATE parcels SET current_location='{}' WHERE parcel_id ='{}'".format(current_location,parcel_id)
+        cursor.execute(command)
+        return_parcel_current_location = "SELECT * FROM parcels WHERE parcel_id = '{}'".format(parcel_id)
+        dictcur.execute(return_parcel_current_location)
+        data = dictcur.fetchall()
+        return data
     # def hash_password(self,hashed_password, login_password):
     #     return check_password_hash(hashed_password["hash_password"], login_password["hash_password"])
 
