@@ -43,6 +43,13 @@ class DbOperations:
         dictcur.execute(command) 
         data=dictcur.fetchall()     
         return data  
+
+    def get_one_parcel(self, parcel_id):
+        """Returns a specific delivery order from the parcel list."""
+        command = "SELECT * FROM parcels WHERE parcel_id ='{}'".format(parcel_id)
+        dictcur.execute(command)
+        one_parcel= dictcur.fetchone()
+        return one_parcel
     # def hash_password(self,hashed_password, login_password):
     #     return check_password_hash(hashed_password["hash_password"], login_password["hash_password"])
 
