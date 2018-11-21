@@ -50,6 +50,15 @@ class DbOperations:
         dictcur.execute(command)
         one_parcel= dictcur.fetchone()
         return one_parcel
+
+    def update_parcel_status(self, parcel_id, status):
+        """Updates the status of a parcel."""
+        command = "UPDATE parcels SET status='{}' WHERE parcel_id ='{}'".format(status,parcel_id)
+        cursor.execute(command)
+        return_parcel_status = "SELECT * FROM parcels WHERE parcel_id = '{}'".format(parcel_id)
+        dictcur.execute(return_parcel_status)
+        data = dictcur.fetchall()
+        return data
     # def hash_password(self,hashed_password, login_password):
     #     return check_password_hash(hashed_password["hash_password"], login_password["hash_password"])
 
