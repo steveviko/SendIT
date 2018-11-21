@@ -154,3 +154,16 @@ def update_destination(parcel_id):
         return jsonify({"parcel destination changed": updated}), 201  
     else:
         return jsonify({"Error": "parcel does not exist"}), 404
+
+@app.route("/api/v2/parcels/<parcel_id>/presentLocation", methods=["PUT"])
+def update_presentLocation(parcel_id):
+    """Implements api that changes parcel delivery order presentLocation."""
+    data =json.loads(request.data)
+    parcel_current_location = data["current_location"]
+    if  not parcel_id.isdigit():
+        return jsonify({"Error": "Please input correct parcel  id"}), 400     
+    elif parcel_current_location:
+        updated = db_obj.update_parcel_current_location(int(parcel_id), parcel_current_location)
+        return jsonify({"parcel presentLocation changed": updated}), 201  
+    else:
+        return jsonify({"Error": "parcel does not exist"}), 404
