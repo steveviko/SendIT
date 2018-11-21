@@ -110,12 +110,7 @@ def create_parcels():
         "description" :data['description'],
         "destination" :data['destination'],
         "current_location" :data['current_location']}
-        # "status" :data['status']}
-        #  = data['description']
-        # if len(data["description"])  4:
-            # return jsonify({'message': 'description can not be less than 6 words'}), 400
-        # if data["description"].isdigit():
-            # return jsonify({'message': 'description can not contain only numbers'}), 400
+       
 
         new_parcel=db_obj.add_parcel(parcel,user_id=1)
         return jsonify({'message': 'parcel successfully created','parcel':new_parcel}), 201
