@@ -6,3 +6,6 @@ __pycache__
 venv
 app/__pycache__
 tests/__pycache__
+.pytest_cache
+app/models/__pycache__
+app/database/__pycache__

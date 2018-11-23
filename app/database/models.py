@@ -1,18 +1,33 @@
-# from app import app
 import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
+
+
 class Database:    
     def __init__(self):
         """Connect to the database."""   
-        db  = os.getenv['DATABASE']
-        self.conn = psycopg2.connect(user="postgres" ,password="password" ,host="localhost", database=db)
-        self.conn.autocommit = True
-        self.cur = self.conn.cursor()
-        self.dict_cursor=self.conn.cursor(cursor_factory=RealDictCursor)
-
-        print("Connected to the database")
+        if os.getenv('APP_SETTINGS') == "testing":
+            database_name = "test_sendit"
+            self.conn = psycopg2.connect(database =database_name, user="postgres",password="password", host="localhost",port="5432")
+            self.conn.autocommit = True
+            self.cur = self.conn.cursor()
+            self.dict_cursor=self.conn.cursor(cursor_factory=RealDictCursor)
+        
+        else:
+            database_name = "sendit"
+            
+            try:
+                print('establishing connection to ' + database_name)
+                self.conn = psycopg2.connect(database =database_name, user="postgres",password="password", host="localhost",port="5432")
+                self.conn.autocommit = True
+                self.cur = self.conn.cursor()
+                self.dict_cursor=self.conn.cursor(cursor_factory=RealDictCursor)
+               
+                print("Connected to the database")
+            except (Exception, psycopg2.DatabaseError) as error:
+                print(error)
+            # return self.cur
 
     def create_user_table(self):
         """Create table to store users data."""
@@ -37,3 +52,8 @@ class Database:
                         "user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))")
         self.cur.execute(parcels_table)
 
+    def drop_tables(self):
+        """function that drops the tables"""
+        command = "TRUNCATE TABLE users, parcels RESTART IDENTITY "
+        self.cur.execute(command)
+        return print('tables dropped successfully')

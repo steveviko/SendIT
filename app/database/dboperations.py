@@ -1,7 +1,7 @@
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import create_app
-from app.models import Database
+from app.database.models import Database
 
 db = Database()
 cursor =db.cur
@@ -16,8 +16,8 @@ class DbOperations:
     def add_user(self,account):
         """ insert a new user into the users table """
         command = "INSERT INTO users(username, email,hash_password, role) VALUES(\
-                '{}',  '{}', '{}', 'user')".format(account["username"],  account["email"]\
-                , generate_password_hash(account["hash_password"]))
+                '{}',  '{}', '{}', '{}')".format(account["username"],  account["email"]\
+                , generate_password_hash(account["hash_password"]),account["role"])
         cursor.execute(command)
         return account
 
@@ -56,6 +56,18 @@ class DbOperations:
         dictcur.execute(command)
         one_parcel= dictcur.fetchone()
         return one_parcel
+
+    def fetch_user_by_id(self, user_id):
+        command = "SELECT * FROM users WHERE user_id='{}'".format(user_id)
+        dictcur.execute(command)
+        one_user= dictcur.fetchone()
+        return one_user
+
+    def fetch_user_email(self, email):
+        command= "SELECT * FROM users WHERE email='{}'".format(email)
+        dictcur.execute(command)
+        user_email= dictcur.fetchone()
+        return user_email
 
     def update_parcel_status(self, parcel_id, status):
         """Updates the status of a parcel."""
