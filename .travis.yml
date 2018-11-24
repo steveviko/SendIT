@@ -23,7 +23,7 @@ script:
   - coverage report
 before_script:
   - pip install -r requirements.txt
-  - psql -c 'create database sendit;' -U postgres
+  - psql -c 'create database test_sendit;' -U postgres
  
  
 after_success:
