@@ -7,13 +7,15 @@ install:
   - pip install coveralls
   - pip install -r requirements.txt
 
-# Service for postgre database
-services:
-  - postgresql 
+
 
 env:
   global:
-    - APP_SETTINGS=testing
+    - APP_Config=testing
+
+# Service for postgre database
+services:
+  - postgresql 
 
 # command to run tests
 script:
@@ -21,7 +23,7 @@ script:
   - coverage report
 before_script:
   - pip install -r requirements.txt
-  - psql -c 'create database test_sendit;' -U postgres
+  - psql -c 'create database sendit;' -U postgres
  
  
 after_success:
