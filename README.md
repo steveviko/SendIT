@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/steveviko/SendIT.svg?branch=develop)](https://travis-ci.org/steveviko/SendIT)
+[![Build Status](https://travis-ci.org/steveviko/SendIT.svg?branch=challenge3)](https://travis-ci.org/steveviko/SendIT)
 [![Coverage Status](https://coveralls.io/repos/github/steveviko/SendIT/badge.svg?branch=challenge2)](https://coveralls.io/github/steveviko/SendIT?branch=challenge2)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2b9eb6fa3784abf79d79/maintainability)](https://codeclimate.com/github/steveviko/SendIT/maintainability)
 # SendIT
