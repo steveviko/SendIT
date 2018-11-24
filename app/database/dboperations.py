@@ -102,10 +102,10 @@ class DbOperations:
     #     query = self.query_user(username)
     #     return query.fetchone()
 
-    def query_user(self, account):
-        command = "SELECT * FROM users WHERE username= '{}'".format(account["username"])
+    def query_user(self):
+        command = "SELECT * FROM users "
         dictcur.execute(command)
-        data = dictcur.fetchone()
+        data = dictcur.fetchall()
         return data
 
         

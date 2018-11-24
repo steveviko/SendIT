@@ -36,10 +36,14 @@ def token_required(f):
         return f(current_user, *args, **kwargs)
     return decorated
 
+@app.route("/api/v1/users", methods=["GET"])
+def fetch_all_users():
+    users=db_obj.query_user()      
+    return jsonify({"Users":users}), 200
         
 @app.route('/api/v2/auth/signup', methods=['POST'])
 def signup_user():
-       
+    
     result = request.data
     data=json.loads(result)        
     if not data:
@@ -48,7 +52,6 @@ def signup_user():
         return jsonify({'error': 'username is requred'}), 400
     elif 'email' not in data:
         return jsonify({'error': 'email is required'}), 400        
-
     elif 'hash_password' not in data:
         return jsonify({'error': 'password is required'}), 400
     elif 'role' not in data:
@@ -157,7 +160,6 @@ def get_single_parcel(parcel_id):
     return jsonify({"Parcel": parcel}), 200
 
 @app.route("/api/v2/parcels/<parcel_id>/status", methods=["PUT"])
-@token_required
 def update_status(current_user,parcel_id):
     """Implements api that changes parcel delivery order status."""
      
@@ -174,8 +176,8 @@ def update_status(current_user,parcel_id):
         return jsonify({"Error": "parcel does not exist"}), 404
 
 @app.route("/api/v2/parcels/<parcel_id>/destination", methods=["PUT"])
-@token_required
-def update_destination(current_user,parcel_id):
+
+def update_destination(parcel_id):
     """Implements api that changes parcel delivery order destination."""
     data =json.loads(request.data)
     parcel_destination = data["destination"]

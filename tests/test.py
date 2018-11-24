@@ -33,10 +33,10 @@ def dboperations(scope="module"):
 
 def test_register_user(dboperations):
     create_user = {
-        "username":"steve",
-        "hash_password": "password",
-        "email": "email@email",
-        "role":"user"
+        "username":"john",
+        "hash_password": "paord",
+        "email": "emai@email",
+        "role":"admin"
     }
     assert dboperations.add_user(create_user)   
 
