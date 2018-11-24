@@ -33,9 +33,9 @@ def dboperations(scope="module"):
 
 def test_register_user(dboperations):
     create_user = {
-        "username":"john",
-        "hash_password": "paord",
-        "email": "emai@email",
+        "username":"joggg",
+        "hash_password": "pggrd",
+        "email": "emaui@email",
         "role":"admin"
     }
     assert dboperations.add_user(create_user)   
@@ -46,7 +46,7 @@ def test_fecth_user_by_id(dboperations):
     assert not isinstance(dboperations.fetch_user_by_id(user_id), tuple)
 
 def test_fecth_user_email(dboperations):
-    email = "steveb@mail.com"
+    email = "email@mail.com"
     assert dboperations.fetch_user_email(email) == None
     assert not isinstance(dboperations.fetch_user_email(email), tuple)
 
