@@ -7,7 +7,7 @@ from psycopg2.extras import RealDictCursor
 class Database:    
     def __init__(self):
         """Connect to the database."""   
-        if os.getenv('APP_SETTINGS') == "testing":
+        if os.getenv('APP_Config') == "testing":
             database_name = "test_sendit"
             self.conn = psycopg2.connect(database =database_name, user="postgres",password="password", host="localhost",port="5432")
             self.conn.autocommit = True
